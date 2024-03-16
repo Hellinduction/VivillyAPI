@@ -10,10 +10,38 @@ buildscript {
 
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
 apply plugin: 'java'
 apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'maven-publish'
+
+jar {
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+wrapper {
+    gradleVersion = "8.1.1"
+    distributionType = Wrapper.DistributionType.ALL
+}
+
+shadowJar {
+    minimize()
+    java {
+        withSourcesJar()
+    }
+}
 
 group = 'club.hellin.vivillyapi'
 version = '1.0-SNAPSHOT'
@@ -26,6 +54,10 @@ repositories {
     }
     repositories {
         maven { url 'https://jitpack.io' }
+    }
+    maven {
+        name = "sonatype"
+        url = "https://oss.sonatype.org/content/groups/public/"
     }
 }
 
@@ -44,4 +76,31 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+def targetJavaVersion = 8
+java {
+    withSourcesJar()
+
+    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
+    if (JavaVersion.current() < javaVersion) {
+        toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
+        options.release = targetJavaVersion
+    }
+}
+
+processResources {
+    def props = [version: version]
+    inputs.properties props
+    filteringCharset 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand props
+    }
 }
