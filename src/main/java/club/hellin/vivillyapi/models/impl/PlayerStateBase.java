@@ -1,14 +1,13 @@
 package club.hellin.vivillyapi.models.impl;
 
+import club.hellin.vivillyapi.SpigotCoreBase;
 import club.hellin.vivillyapi.models.ModelBase;
-import club.hellin.vivillyapi.models.impl.objects.AppWarsStatsBase;
-import club.hellin.vivillyapi.models.impl.objects.ArenaStatsBase;
-import club.hellin.vivillyapi.models.impl.objects.NotEnoughTokensException;
-import club.hellin.vivillyapi.models.impl.objects.SumoEventStatsBase;
+import club.hellin.vivillyapi.models.impl.objects.*;
 import club.hellin.vivillyapi.utils.AutoJoinType;
 import club.hellin.vivillyapi.utils.ChatType;
 
 import java.util.Collection;
+import java.util.UUID;
 import java.util.function.Consumer;
 
 public interface PlayerStateBase extends ModelBase {
@@ -21,6 +20,7 @@ public interface PlayerStateBase extends ModelBase {
     SumoEventStatsBase getSumoEventStats();
     AppWarsStatsBase getAppWarsStats();
     ArenaStatsBase getArenaStats();
+    EventsStatsBase getEventsStats();
     boolean hasForceField();
     PlayerStateBase hasForceField(final boolean forceField);
     boolean hasMagnet();
@@ -66,4 +66,15 @@ public interface PlayerStateBase extends ModelBase {
     boolean isAutoJoin();
     void isOnline(final Consumer<Boolean> callback);
     void send(final String server);
+    default void sudo(final String command, final boolean proxy) {
+        SpigotCoreBase.INSTANCE.getWs().sudo(UUID.fromString(this.getUuid()), command, proxy);
+    }
+
+    /**
+     * Updates the PlayerState in the DB and synchronizes across all servers
+     * call this after you have finished making all your changes
+     */
+    default void update() {
+        SpigotCoreBase.INSTANCE.getWs().updatePlayerState(this);
+    }
 }

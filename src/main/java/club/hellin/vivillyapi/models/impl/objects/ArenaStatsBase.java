@@ -9,7 +9,9 @@ public interface ArenaStatsBase {
         ARENA_WIN_STREAK("arenaWinStreak", 0),
         SUMO_WIN_STREAK("sumoWinStreak", 0),
         ARENA_WINS("arenaWins", 0),
-        SUMO_WINS("sumoWins", 0);
+        SUMO_WINS("sumoWins", 0),
+        BEST_ARENA_WIN_STREAK("bestArenaWinStreak", 0),
+        BEST_SUMO_WIN_STREAK("bestSumoWinStreak", 0);
 
         private final String fieldName;
         private final String sqlName;
@@ -31,6 +33,10 @@ public interface ArenaStatsBase {
     ArenaStatsBase setArenaWins(final int arenaWins);
     int getSumoWins();
     ArenaStatsBase setSumoWins(final int sumoWins);
+    int getBestArenaWinStreak();
+    ArenaStatsBase setBestArenaWinStreak(final int bestArenaWinStreak);
+    int getBestSumoWinStreak();
+    ArenaStatsBase setBestSumoWinStreak(final int bestSumoWinStreak);
     int getInt(final Values values);
     boolean getBoolean(final Values values);
     ArenaStatsBase setInt(final Values values, final int integer);

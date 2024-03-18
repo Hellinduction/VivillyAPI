@@ -4,6 +4,7 @@ import club.hellin.vivillyapi.models.impl.PlayerStateBase;
 import club.hellin.vivillyapi.utils.ChatType;
 import club.hellin.vivillyapi.utils.api.ServerType;
 import club.hellin.vivillyapi.utils.events.impl.FollowEvent;
+import club.hellin.vivillyapi.utils.ws.events.EventBase;
 import club.hellin.vivillyapi.utils.ws.party.PartyBase;
 import org.bukkit.entity.Player;
 
@@ -76,4 +77,7 @@ public interface WsClientBase {
     void isInParty(final UUID uuid, final Consumer<Boolean> callback);
     void isFollowing(final UUID uuid, final String username, final Consumer<Boolean> callback);
     void send(final String str);
+    void broadcastToEvent(final String message);
+    void getCurrentEvent(final Consumer<EventBase> callback);
+    void isInEvent(final UUID uuid, final Consumer<Boolean> callback);
 }

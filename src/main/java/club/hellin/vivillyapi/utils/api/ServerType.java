@@ -9,8 +9,8 @@ import java.util.List;
 public enum ServerType {
     SUMO_EVENT(2, 100, true, false),
     APP_WARS(2, 16, false, false),
-    BED_WARS(2, 16, false, true), // Start with 4v4v4v4 BedWars but make it so if 2 players joined it would just distribute them evenly among the teams, process people in parties first and put them in the same team as the leader if possible
-    ARENA(2, 2, false, true);
+    ARENA(2, 2, false, true),
+    EVENTS(2, 100, true, true);
 
     private final int minPlayers;
     private final int maxPlayers;

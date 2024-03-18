@@ -42,7 +42,18 @@ public interface LeaderboardBase {
         ARENA_ARENA_WIN_STREAK(ArenaStatsBase.Values.ARENA_WIN_STREAK, ServerType.ARENA),
         ARENA_SUMO_WIN_STREAK(ArenaStatsBase.Values.SUMO_WIN_STREAK, ServerType.ARENA),
         ARENA_ARENA_WINS(ArenaStatsBase.Values.ARENA_WINS, ServerType.ARENA),
-        ARENA_SUMO_WINS(ArenaStatsBase.Values.SUMO_WINS, ServerType.ARENA);
+        ARENA_SUMO_WINS(ArenaStatsBase.Values.SUMO_WINS, ServerType.ARENA),
+        ARENA_ARENA_BEST_WIN_STREAK(ArenaStatsBase.Values.BEST_ARENA_WIN_STREAK, ServerType.ARENA),
+        ARENA_SUMO_BEST_WIN_STREAK(ArenaStatsBase.Values.BEST_SUMO_WIN_STREAK, ServerType.ARENA),
+
+        /**
+         * Events Stats
+         */
+        EVENTS_WINS(EventsStatsBase.Values.WINS, ServerType.EVENTS),
+        EVENTS_WIN_STREAK(EventsStatsBase.Values.WIN_STREAK, ServerType.EVENTS),
+        EVENTS_EXPERIENCE(EventsStatsBase.Values.EXPERIENCE, ServerType.EVENTS),
+        EVENTS_LOSSES(EventsStatsBase.Values.LOSSES, ServerType.EVENTS),
+        EVENTS_BEST_WIN_STREAK(EventsStatsBase.Values.BEST_WIN_STREAK, ServerType.EVENTS);
 
         private final StatValues values;
         private final ServerType serverType;
