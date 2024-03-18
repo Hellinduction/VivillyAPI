@@ -40,8 +40,10 @@ public interface EventBase {
         return this.isHost(player.getUniqueId());
     }
     default EventBase givePrize(final PlayerStateBase state) {
-        state.getEventsStats().addToMoneyWon(this.getPrizePool()); // TODO: Make some kinda of multiplier based on win streak :D
+        state.getEventsStats().addToMoneyWon(this.getPrizePool());
         state.update();
         return this;
     }
+    boolean isOver();
+    EventBase setOver(final boolean over);
 }

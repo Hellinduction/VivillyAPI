@@ -20,6 +20,7 @@ public interface WsClientBase {
     Map<String, Integer> getPlayerCountServerNameMap();
     Map<UUID, FollowEvent.FollowData> getFollowEvents();
     List<? extends PartyBase> getParties();
+    EventBase getActiveEvent();
     boolean isRestrictedMode();
     List<? extends PlayerStateBase> getVanished();
     List<? extends PlayerStateBase> getNonVanished(final boolean online);
