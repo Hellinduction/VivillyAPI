@@ -1,9 +1,10 @@
 package club.hellin.vivillyapi.models.impl.objects;
 
+import club.hellin.vivillyapi.models.ModelBase;
 import club.hellin.vivillyapi.utils.Utils;
 import lombok.Getter;
 
-public interface ArenaStatsBase {
+public interface ArenaStatsBase extends ModelBase {
     @Getter
     enum Values implements StatValues {
         ARENA_WIN_STREAK("arenaWinStreak", 0),

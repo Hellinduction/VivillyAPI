@@ -1,9 +1,10 @@
 package club.hellin.vivillyapi.models.impl.objects;
 
+import club.hellin.vivillyapi.models.ModelBase;
 import club.hellin.vivillyapi.utils.Utils;
 import lombok.Getter;
 
-public interface AppWarsStatsBase {
+public interface AppWarsStatsBase extends ModelBase {
     @Getter
     enum Values implements StatValues { // Not too proud of this one
         GAMES_PLAYED("gamesPlayed", 0),

@@ -1,9 +1,10 @@
 package club.hellin.vivillyapi.models.impl.objects;
 
+import club.hellin.vivillyapi.models.ModelBase;
 import club.hellin.vivillyapi.utils.Utils;
 import lombok.Getter;
 
-public interface EventsStatsBase {
+public interface EventsStatsBase extends ModelBase {
     @Getter
     enum Values implements StatValues {
         WINS("wins", 0),
@@ -45,12 +46,12 @@ public interface EventsStatsBase {
      * @param amount
      * @return
      */
-    SumoEventStatsBase addToMoneyWon(final int amount); // TODO: Make sure to notify the player every time their money is increased :)
+    EventsStatsBase addToMoneyWon(final int amount); // TODO: Make sure to notify the player every time their money is increased :)
 
-    int getInt(final SumoEventStatsBase.Values values);
-    boolean getBoolean(final SumoEventStatsBase.Values values);
-    EventsStatsBase setInt(final SumoEventStatsBase.Values values, final int integer);
-    EventsStatsBase setBoolean(final SumoEventStatsBase.Values values, final boolean value);
+    int getInt(final EventsStatsBase.Values values);
+    boolean getBoolean(final EventsStatsBase.Values values);
+    EventsStatsBase setInt(final EventsStatsBase.Values values, final int integer);
+    EventsStatsBase setBoolean(final EventsStatsBase.Values values, final boolean value);
 
     /**
      * Gets primitive value from Values
@@ -59,7 +60,7 @@ public interface EventsStatsBase {
      * @param <T>
      * @return
      */
-    <T> T getPrimitive(final SumoEventStatsBase.Values values, final Class<T> type);
+    <T> T getPrimitive(final EventsStatsBase.Values values, final Class<T> type);
 
     String toJson();
     EventsStatsBase clone();
