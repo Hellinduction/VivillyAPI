@@ -5,6 +5,7 @@ import club.hellin.vivillyapi.utils.ChatType;
 import club.hellin.vivillyapi.utils.api.ServerType;
 import club.hellin.vivillyapi.utils.events.impl.FollowEvent;
 import club.hellin.vivillyapi.utils.ws.events.EventBase;
+import club.hellin.vivillyapi.utils.ws.events.EventType;
 import club.hellin.vivillyapi.utils.ws.party.PartyBase;
 import org.bukkit.entity.Player;
 
@@ -81,4 +82,11 @@ public interface WsClientBase {
     void broadcastToEvent(final String message);
     void getCurrentEvent(final Consumer<EventBase> callback);
     void isInEvent(final UUID uuid, final Consumer<Boolean> callback);
+    void announceEvent(final int startingIn);
+
+    /**
+     * Get the current active event and make the event server start
+     * When event server connects to the websocket, it should get the current event and set that to its type
+     */
+    void startCurrentEvent();
 }

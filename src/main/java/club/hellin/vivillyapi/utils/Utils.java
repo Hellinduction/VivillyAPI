@@ -3,6 +3,7 @@ package club.hellin.vivillyapi.utils;
 import club.hellin.vivillyapi.utils.api.ServerType;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.InventoryView;
 
 import java.util.UUID;
 import java.util.concurrent.ExecutorService;
@@ -62,4 +63,10 @@ public abstract class Utils {
     public abstract String getPrefix(final Player p);
 
     public abstract String getPrefix(final String rank);
+
+    public abstract String formatInteger(final int integer);
+
+    public abstract String formatNumber(final double d);
+
+    public abstract String getInventoryName(final InventoryView view);
 }
