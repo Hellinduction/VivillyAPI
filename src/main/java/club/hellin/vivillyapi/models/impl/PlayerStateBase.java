@@ -73,6 +73,7 @@ public interface PlayerStateBase extends ModelBase {
     /**
      * Updates the PlayerState in the DB and synchronizes across all servers
      * call this after you have finished making all your changes
+     * WARNING: DO NOT WAIT TO CALL THIS!! CALL THIS AS SOON AS YOU HAVE THE CHANGES OTHERWISE YOU MAY CAUSE ISSUES!
      */
     default void update() {
         SpigotCoreBase.INSTANCE.getWs().updatePlayerState(this);
