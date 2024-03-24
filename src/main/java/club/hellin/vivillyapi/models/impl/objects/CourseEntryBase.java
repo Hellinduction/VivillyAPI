@@ -4,13 +4,12 @@ import club.hellin.vivillyapi.models.ModelBase;
 import club.hellin.vivillyapi.utils.Utils;
 import lombok.Getter;
 
-import java.util.List;
-
-public interface ElytraStatsBase extends ModelBase {
+public interface CourseEntryBase extends ModelBase {
     @Getter
     enum Values implements StatValues {
-        COMPLETION_STREAK("completionStreak", 0),
-        TIMES_COMPLETED("timesCompleted", 0);
+        TIME("time", 0), // In seconds
+        ROCKETS_USED("rocketsUsed", 0),
+        TIMES_HIT_GROUND("timesHitGround", 0);
 
         private final String fieldName;
         private final String sqlName;
@@ -24,13 +23,13 @@ public interface ElytraStatsBase extends ModelBase {
     }
 
     String getUuid();
-    List<CourseEntryBase> getEntries();
-    int getCompletionStreak();
-    int getTimesCompleted();
-    int getInt(final ElytraStatsBase.Values values);
-    boolean getBoolean(final ElytraStatsBase.Values values);
-    ElytraStatsBase setInt(final ElytraStatsBase.Values values, final int integer);
-    ElytraStatsBase setBoolean(final ElytraStatsBase.Values values, final boolean value);
+    int getTime();
+    int getRocketsUsed();
+    int getTimesHitGround();
+    int getInt(final CourseEntryBase.Values values);
+    boolean getBoolean(final CourseEntryBase.Values values);
+    CourseEntryBase setInt(final CourseEntryBase.Values values, final int integer);
+    CourseEntryBase setBoolean(final CourseEntryBase.Values values, final boolean value);
 
     /**
      * Gets primitive value from Values
@@ -39,8 +38,8 @@ public interface ElytraStatsBase extends ModelBase {
      * @param <T>
      * @return
      */
-    <T> T getPrimitive(final ElytraStatsBase.Values values, final Class<T> type);
+    <T> T getPrimitive(final CourseEntryBase.Values values, final Class<T> type);
 
     String toJson();
-    ElytraStatsBase clone();
+    CourseEntryBase clone();
 }

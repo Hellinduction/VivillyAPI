@@ -11,7 +11,8 @@ public enum ServerType {
     APP_WARS(2, 16, false, false),
     ARENA(2, 2, false, true),
     EVENTS(2, 100, true, true),
-    ELYTRA(1, 100, false, false);
+    ELYTRA(1, 100, false, false),
+    ELYTRA_COURSE(1, 100, false, false);
 
     private final int minPlayers;
     private final int maxPlayers;
