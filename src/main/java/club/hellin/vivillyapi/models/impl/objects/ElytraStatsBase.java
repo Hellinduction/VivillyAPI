@@ -28,9 +28,9 @@ public interface ElytraStatsBase extends ModelBase {
     int getCompletionStreak();
     int getTimesCompleted();
     int getRocketsUsed();
-    boolean getBoolean(final EventsStatsBase.Values values);
-    ElytraStatsBase setInt(final EventsStatsBase.Values values, final int integer);
-    ElytraStatsBase setBoolean(final EventsStatsBase.Values values, final boolean value);
+    boolean getBoolean(final ElytraStatsBase.Values values);
+    ElytraStatsBase setInt(final ElytraStatsBase.Values values, final int integer);
+    ElytraStatsBase setBoolean(final ElytraStatsBase.Values values, final boolean value);
 
     /**
      * Gets primitive value from Values
@@ -39,7 +39,7 @@ public interface ElytraStatsBase extends ModelBase {
      * @param <T>
      * @return
      */
-    <T> T getPrimitive(final EventsStatsBase.Values values, final Class<T> type);
+    <T> T getPrimitive(final ElytraStatsBase.Values values, final Class<T> type);
 
     String toJson();
     ElytraStatsBase clone();
