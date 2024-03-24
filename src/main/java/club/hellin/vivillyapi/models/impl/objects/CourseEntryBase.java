@@ -9,7 +9,8 @@ public interface CourseEntryBase extends ModelBase {
     enum Values implements StatValues {
         TIME("time", 0), // In seconds
         ROCKETS_USED("rocketsUsed", 0),
-        TIMES_HIT_GROUND("timesHitGround", 0);
+        TIMES_HIT_GROUND("timesHitGround", 0),
+        FINISHED_AT("finishedAt", 0); // Epoch second of when they finished the course
 
         private final String fieldName;
         private final String sqlName;
@@ -26,6 +27,7 @@ public interface CourseEntryBase extends ModelBase {
     int getTime();
     int getRocketsUsed();
     int getTimesHitGround();
+    int getFinishedAt();
     int getInt(final CourseEntryBase.Values values);
     boolean getBoolean(final CourseEntryBase.Values values);
     CourseEntryBase setInt(final CourseEntryBase.Values values, final int integer);

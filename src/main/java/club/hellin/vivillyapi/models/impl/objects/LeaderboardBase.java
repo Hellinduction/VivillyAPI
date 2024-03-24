@@ -64,9 +64,10 @@ public interface LeaderboardBase {
         /**
          * CourseEntry Stats
          */
-        ELYTRA_TIME(CourseEntryBase.Values.TIME, ServerType.ELYTRA_COURSE),
-        ELYTRA_ROCKETS_USED(CourseEntryBase.Values.ROCKETS_USED, ServerType.ELYTRA_COURSE),
-        ELYTRA_TIMES_HIT_GROUND(CourseEntryBase.Values.TIMES_HIT_GROUND, ServerType.ELYTRA_COURSE);
+        ELYTRA_COURSE_TIME(CourseEntryBase.Values.TIME, ServerType.ELYTRA_COURSE),
+        ELYTRA_COURSE_ROCKETS_USED(CourseEntryBase.Values.ROCKETS_USED, ServerType.ELYTRA_COURSE),
+        ELYTRA_COURSE_TIMES_HIT_GROUND(CourseEntryBase.Values.TIMES_HIT_GROUND, ServerType.ELYTRA_COURSE),
+        ELYTRA_COURSE_FINISHED_AT(CourseEntryBase.Values.FINISHED_AT, ServerType.ELYTRA_COURSE);
 
         private final StatValues values;
         private final ServerType serverType;
