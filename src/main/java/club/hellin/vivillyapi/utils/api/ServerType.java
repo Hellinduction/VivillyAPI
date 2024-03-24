@@ -10,7 +10,8 @@ public enum ServerType {
     SUMO_EVENT(2, 100, true, false),
     APP_WARS(2, 16, false, false),
     ARENA(2, 2, false, true),
-    EVENTS(2, 100, true, true);
+    EVENTS(2, 100, true, true),
+    ELYTRA(1, 100, false, false);
 
     private final int minPlayers;
     private final int maxPlayers;

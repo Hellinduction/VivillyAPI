@@ -21,6 +21,7 @@ public interface PlayerStateBase extends ModelBase {
     AppWarsStatsBase getAppWarsStats();
     ArenaStatsBase getArenaStats();
     EventsStatsBase getEventsStats();
+    ElytraStatsBase getElytraStats();
     boolean hasForceField();
     PlayerStateBase hasForceField(final boolean forceField);
     boolean hasMagnet();

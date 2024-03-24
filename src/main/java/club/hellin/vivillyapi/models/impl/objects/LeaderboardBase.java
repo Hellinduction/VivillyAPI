@@ -53,7 +53,15 @@ public interface LeaderboardBase {
         EVENTS_WIN_STREAK(EventsStatsBase.Values.WIN_STREAK, ServerType.EVENTS),
         EVENTS_EXPERIENCE(EventsStatsBase.Values.EXPERIENCE, ServerType.EVENTS),
         EVENTS_LOSSES(EventsStatsBase.Values.LOSSES, ServerType.EVENTS),
-        EVENTS_BEST_WIN_STREAK(EventsStatsBase.Values.BEST_WIN_STREAK, ServerType.EVENTS);
+        EVENTS_BEST_WIN_STREAK(EventsStatsBase.Values.BEST_WIN_STREAK, ServerType.EVENTS),
+
+        /**
+         * Elytra Stats
+         */
+        ELYTRA_TIME(ElytraStatsBase.Values.TIME, ServerType.ELYTRA),
+        ELYTRA_COMPLETION_STREAK(ElytraStatsBase.Values.COMPLETION_STREAK, ServerType.ELYTRA),
+        ELYTRA_TIMES_COMPLETED(ElytraStatsBase.Values.TIMES_COMPLETED, ServerType.ELYTRA),
+        ELYTRA_ROCKETS_USED(ElytraStatsBase.Values.ROCKETS_USED, ServerType.ELYTRA);
 
         private final StatValues values;
         private final ServerType serverType;
