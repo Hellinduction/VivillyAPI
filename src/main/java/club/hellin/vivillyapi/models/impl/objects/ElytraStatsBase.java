@@ -28,6 +28,7 @@ public interface ElytraStatsBase extends ModelBase {
     int getCompletionStreak();
     int getTimesCompleted();
     int getRocketsUsed();
+    int getInt(final ElytraStatsBase.Values values);
     boolean getBoolean(final ElytraStatsBase.Values values);
     ElytraStatsBase setInt(final ElytraStatsBase.Values values, final int integer);
     ElytraStatsBase setBoolean(final ElytraStatsBase.Values values, final boolean value);
