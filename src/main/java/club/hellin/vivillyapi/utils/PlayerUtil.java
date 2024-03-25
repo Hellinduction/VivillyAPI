@@ -7,6 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
+import java.util.Optional;
 import java.util.UUID;
 import java.util.function.Consumer;
 
@@ -32,6 +33,14 @@ public final class PlayerUtil {
         return getPlayerState(player.getUniqueId());
     }
 
+    public Optional<PlayerStateBase> getPlayerStateOptional(final UUID uuid) {
+        return Optional.ofNullable(getPlayerState(uuid));
+    }
+
+    public Optional<PlayerStateBase> getPlayerStateOptional(final Player player) {
+        return Optional.ofNullable(getPlayerState(player));
+    }
+
     /**
      * Gets a PlayerState assuming player is online
      * @param username
@@ -49,6 +58,10 @@ public final class PlayerUtil {
         }
 
         return found;
+    }
+
+    public Optional<PlayerStateBase> getPlayerStateByUsernameOptional(final String username) {
+        return Optional.ofNullable(getPlayerStateByUsername(username));
     }
 
     public void getOfflinePlayerState(final UUID uuid, final Consumer<PlayerStateBase> callback) {

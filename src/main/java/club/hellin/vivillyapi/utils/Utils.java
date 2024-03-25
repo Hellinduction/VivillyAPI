@@ -1,5 +1,6 @@
 package club.hellin.vivillyapi.utils;
 
+import club.hellin.vivillyapi.models.impl.objects.CourseEntryBase;
 import club.hellin.vivillyapi.utils.api.ServerType;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -69,4 +70,6 @@ public abstract class Utils {
     public abstract String formatNumber(final double d);
 
     public abstract String getInventoryName(final InventoryView view);
+
+    public abstract CourseEntryBase createCourseEntry(final String uuid, final int time, final int rocketsUsed, final int timesHitGround, final int finishedAt);
 }
