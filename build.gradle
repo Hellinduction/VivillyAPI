@@ -48,7 +48,7 @@ shadowJar {
 }
 
 group = 'com.github.Hellinduction'
-version = '1.0.19-SNAPSHOT'
+version = '1.0.21-SNAPSHOT'
 
 repositories {
     mavenCentral()
