@@ -47,4 +47,5 @@ public interface EventBase {
     boolean isOver();
     EventBase setOver(final boolean over);
     int playerCount();
+    void refund();
 }

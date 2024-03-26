@@ -5,7 +5,6 @@ import club.hellin.vivillyapi.utils.ChatType;
 import club.hellin.vivillyapi.utils.api.ServerType;
 import club.hellin.vivillyapi.utils.events.impl.FollowEvent;
 import club.hellin.vivillyapi.utils.ws.events.EventBase;
-import club.hellin.vivillyapi.utils.ws.events.EventType;
 import club.hellin.vivillyapi.utils.ws.party.PartyBase;
 import org.bukkit.entity.Player;
 
@@ -89,4 +88,12 @@ public interface WsClientBase {
      * When event server connects to the websocket, it should get the current event and set that to its type
      */
     void startCurrentEvent();
+
+    /**
+     * Attempts to use the Vault API to give the specified user the specified amount of money on the specified mc server
+     * @param serverName
+     * @param uuid
+     * @param amount
+     */
+    void giveMoney(final String serverName, final UUID uuid, final double amount);
 }
