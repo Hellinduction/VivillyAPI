@@ -10,7 +10,8 @@ public interface CourseEntryBase extends ModelBase {
         TIME("time", 0), // In seconds
         ROCKETS_USED("rocketsUsed", 0),
         TIMES_HIT_GROUND("timesHitGround", 0),
-        FINISHED_AT("finishedAt", 0L); // Epoch second of when they finished the course
+        FINISHED_AT("finishedAt", 0L), // Epoch second of when they finished the course
+        END_POINT_NAME("endPointName", "");
 
         private final String fieldName;
         private final String sqlName;
@@ -28,6 +29,7 @@ public interface CourseEntryBase extends ModelBase {
     int getRocketsUsed();
     int getTimesHitGround();
     long getFinishedAt();
+    String getEndPointName();
     int getInt(final CourseEntryBase.Values values);
     boolean getBoolean(final CourseEntryBase.Values values);
     CourseEntryBase setInt(final CourseEntryBase.Values values, final int integer);
