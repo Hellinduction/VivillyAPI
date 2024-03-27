@@ -8,11 +8,11 @@ import java.util.List;
 @Getter
 public enum ServerType {
     SUMO_EVENT(2, 100, true, false),
-    APP_WARS(2, 16, false, false),
+    APP_WARS(2, 16, false, true),
     ARENA(2, 2, false, true),
     EVENTS(2, 100, true, true),
-    ELYTRA(1, 100, false, false),
-    ELYTRA_COURSE(1, 100, false, false);
+    ELYTRA(1, 100, false, true),
+    ELYTRA_COURSE(1, 100, false, true);
 
     private final int minPlayers;
     private final int maxPlayers;
