@@ -7,10 +7,6 @@ import org.json.JSONObject;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * TODO: Make it ignore parties when transferring to and from the event server since parties are irrelevant
- * @return
- */
 public interface EventBase {
     EventType getType();
 

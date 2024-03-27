@@ -46,7 +46,7 @@ public interface EventsStatsBase extends ModelBase {
      * @param amount
      * @return
      */
-    EventsStatsBase addToMoneyWon(final int amount); // TODO: Make sure to notify the player every time their money is increased :)
+    int addToMoneyWon(final int amount);
 
     int getInt(final EventsStatsBase.Values values);
     boolean getBoolean(final EventsStatsBase.Values values);
