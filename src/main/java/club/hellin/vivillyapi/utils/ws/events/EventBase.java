@@ -44,4 +44,6 @@ public interface EventBase {
     EventBase setOver(final boolean over);
     int playerCount();
     void refund();
+    boolean hasStarted();
+    EventBase setStarted(final boolean started);
 }
