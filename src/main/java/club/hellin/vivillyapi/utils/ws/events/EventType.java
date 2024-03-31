@@ -5,5 +5,8 @@ public enum EventType {
     DEATH_SWAP,
     TNT_TAG,
     LAVA_RISING,
-    SPLEEF;
+    SPLEEF,
+    TNT_RUN,
+    SLIMY,
+    MAN_HUNT;
 }
