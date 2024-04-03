@@ -96,4 +96,8 @@ public interface WsClientBase {
      * @param amount
      */
     void giveMoney(final String serverName, final UUID uuid, final double amount);
+
+    String getEconomyServer();
+    String getEventsServer();
+    boolean isDebugMode();
 }
