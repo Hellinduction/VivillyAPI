@@ -8,5 +8,6 @@ public enum EventType {
     SPLEEF,
     TNT_RUN,
     SLIMY,
-    MAN_HUNT;
+    MAN_HUNT,
+    FFA;
 }
