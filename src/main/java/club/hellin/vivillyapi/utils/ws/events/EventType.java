@@ -9,5 +9,6 @@ public enum EventType {
     TNT_RUN,
     SLIMY,
     MAN_HUNT,
-    FFA;
+    FFA,
+    SUMO_KNOCKOUT;
 }
