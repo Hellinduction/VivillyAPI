@@ -4,7 +4,9 @@ import lombok.Getter;
 
 @Getter
 public enum ChatType {
-    ALL, A(true), PARTY, P(true);
+    ALL, A(true),
+    PARTY, P(true),
+    STAFF, S(true);
 
     private final boolean hide;
 
