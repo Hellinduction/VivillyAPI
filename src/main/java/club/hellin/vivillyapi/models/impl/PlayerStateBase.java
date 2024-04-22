@@ -7,6 +7,7 @@ import club.hellin.vivillyapi.utils.AutoJoinType;
 import club.hellin.vivillyapi.utils.ChatType;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 import java.util.function.Consumer;
 
@@ -46,6 +47,8 @@ public interface PlayerStateBase extends ModelBase {
     PlayerStateBase setServer(final String server);
     String getProxy();
     PlayerStateBase setProxy(final String proxy);
+    List<String> getBedWarsHotbar();
+    List<String> getBedWarsQuickBuy();
     Collection<String> getIgnored();
     PlayerStateBase getClone();
     PlayerStateBase original();
