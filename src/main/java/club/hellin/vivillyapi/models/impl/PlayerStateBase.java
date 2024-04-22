@@ -48,7 +48,9 @@ public interface PlayerStateBase extends ModelBase {
     String getProxy();
     PlayerStateBase setProxy(final String proxy);
     List<String> getBedWarsHotbar();
+    PlayerStateBase setBedWarsHotbar(final List<String> bedWarsHotbar);
     List<String> getBedWarsQuickBuy();
+    PlayerStateBase setBedWarsQuickBuy(final List<String> bedWarsQuickBuy);
     Collection<String> getIgnored();
     PlayerStateBase getClone();
     PlayerStateBase original();
