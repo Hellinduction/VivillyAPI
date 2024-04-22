@@ -10,5 +10,6 @@ public enum EventType {
     SLIMY,
     MAN_HUNT,
     FFA,
-    SUMO_KNOCKOUT;
+    SUMO_KNOCKOUT,
+    BED_WARS;
 }
