@@ -84,6 +84,12 @@ public interface WsClientBase {
     void announceEvent(final int startingIn);
 
     /**
+     * Tries to run a command in a random proxy console
+     * @param command
+     */
+    void console(final String command);
+
+    /**
      * Get the current active event and make the event server start
      * When event server connects to the websocket, it should get the current event and set that to its type
      */
