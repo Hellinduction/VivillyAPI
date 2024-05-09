@@ -46,4 +46,6 @@ public interface EventBase {
     void refund();
     boolean hasStarted();
     EventBase setStarted(final boolean started);
+    String getMap();
+    EventBase setMap(final String map);
 }
