@@ -18,11 +18,36 @@ public interface PlayerStateBase extends ModelBase {
     PlayerStateBase setUsername(final String username);
     boolean isVanished();
     PlayerStateBase setVanished(final boolean vanished);
-    SumoEventStatsBase getSumoEventStats();
-    AppWarsStatsBase getAppWarsStats();
-    ArenaStatsBase getArenaStats();
-    EventsStatsBase getEventsStats();
-    ElytraStatsBase getElytraStats();
+
+    default SumoEventStatsBase getSumoEventStats() {
+        return this.getSumoEventStats(false);
+    }
+
+    SumoEventStatsBase getSumoEventStats(final boolean force);
+
+    default AppWarsStatsBase getAppWarsStats() {
+        return this.getAppWarsStats(false);
+    }
+
+    AppWarsStatsBase getAppWarsStats(final boolean force);
+
+    default ArenaStatsBase getArenaStats() {
+        return this.getArenaStats(false);
+    }
+
+    ArenaStatsBase getArenaStats(final boolean force);
+
+    default EventsStatsBase getEventsStats() {
+        return this.getEventsStats(false);
+    }
+
+    EventsStatsBase getEventsStats(final boolean force);
+
+    default ElytraStatsBase getElytraStats() {
+        return this.getElytraStats(false);
+    }
+
+    ElytraStatsBase getElytraStats(final boolean force);
     boolean hasForceField();
     PlayerStateBase hasForceField(final boolean forceField);
     boolean hasMagnet();
