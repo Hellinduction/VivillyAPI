@@ -94,6 +94,9 @@ public interface PlayerStateBase extends ModelBase {
     int requiredTokens(final int amount);
 
     boolean hasNickname();
+    default String getDisplayName() {
+        return this.hasNickname() ? this.getNickname() : this.getUsername();
+    }
     boolean isAutoJoin();
     void isOnline(final Consumer<Boolean> callback);
     void send(final String server);

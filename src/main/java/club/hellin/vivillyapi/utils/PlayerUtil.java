@@ -2,6 +2,8 @@ package club.hellin.vivillyapi.utils;
 
 import club.hellin.vivillyapi.SpigotCoreBase;
 import club.hellin.vivillyapi.models.impl.PlayerStateBase;
+import club.hellin.vivillyapi.models.impl.objects.EventsStatsBase;
+import club.hellin.vivillyapi.models.impl.objects.SumoEventStatsBase;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
@@ -62,6 +64,34 @@ public final class PlayerUtil {
 
     public Optional<PlayerStateBase> getPlayerStateByUsernameOptional(final String username) {
         return Optional.ofNullable(getPlayerStateByUsername(username));
+    }
+
+    /**
+     * Get stats of online player via uuid
+     * @param uuid
+     * @return
+     */
+    public SumoEventStatsBase getSumoEventStats(final UUID uuid) {
+        final PlayerStateBase state = getPlayerState(uuid);
+
+        if (state != null)
+            return state.getSumoEventStats();
+
+        return null;
+    }
+
+    /**
+     * Get stats of online player via uuid
+     * @param uuid
+     * @return
+     */
+    public EventsStatsBase getEventsStats(final UUID uuid) {
+        final PlayerStateBase state = getPlayerState(uuid);
+
+        if (state != null)
+            return state.getEventsStats();
+
+        return null;
     }
 
     public void getOfflinePlayerState(final UUID uuid, final Consumer<PlayerStateBase> callback) {
