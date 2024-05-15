@@ -71,6 +71,7 @@ public interface WsClientBase {
     void getParty(final UUID uuid, final Consumer<? extends PartyBase> callback);
     void getPlayerState(final UUID uuid, final Consumer<? extends PlayerStateBase> callback);
     void getPlayerStateByUsername(final String username, final Consumer<? extends PlayerStateBase> callback);
+    void getPlayerStateByDisplayName(final String displayName, final Consumer<? extends PlayerStateBase> callback);
     void getServers(final Consumer<List<String>> callback);
     void getParties(final Consumer<List<? extends PartyBase>> callback);
     void updatePlayerState(final PlayerStateBase state);
