@@ -13,7 +13,19 @@ public interface EventsStatsBase extends ModelBase {
         EXPERIENCE("experience", 1000),
         LOSSES("losses", 0),
         BEST_WIN_STREAK("bestWinStreak", 0),
-        MONEY_WON("moneyWon", 0); // This is money that is won and can be collected (through some way) on the SMP
+        MONEY_WON("moneyWon", 0), // This is money that is won and can be collected (through some way) on the SMP
+
+        BED_WARS_ONE_HIT_ONE_KILL("bedWarsOneHitOneKill", false),
+        BED_WARS_HEALTH_BUFF("bedWarsHealthBuff", 0),
+        BED_WARS_LOW_GRAVITY("bedWarsLowGravity", false),
+        BED_WARS_SPEED("bedWarsSpeed", 0),
+        BED_WARS_RESPAWN_TIME("bedWarsRespawnTime", 5),
+        BED_WARS_EVENT_TIMES("bedWarsEventTimes", 1),
+        BED_WARS_NO_EMERALDS("bedWarsNoEmeralds", false),
+        BED_WARS_NO_DIAMONDS("bedWarsNoDiamonds", false),
+        BED_WARS_DISABLE_BLOCK_PROTECTION("bedWarsDisableBlockProtection", false),
+        BED_WARS_BED_INSTA_BREAK("bedWarsBedInstaBreak", false),
+        BED_WARS_MAX_TEAM_UPGRADES("bedWarsMaxTeamUpgrades", false);
 
         private final String fieldName;
         private final String sqlName;
@@ -47,6 +59,29 @@ public interface EventsStatsBase extends ModelBase {
      * @return
      */
     int addToMoneyWon(final int amount);
+
+    boolean isBedWarsOneHitOneKill();
+    EventsStatsBase setBedWarsOneHitOneKill(final boolean value);
+    int getBedWarsHealthBuff();
+    EventsStatsBase setBedWarsHealthBuff(final int value);
+    boolean isBedWarsLowGravity();
+    EventsStatsBase setBedWarsLowGravity(final boolean value);
+    int getBedWarsSpeed();
+    EventsStatsBase setBedWarsSpeed(final int value);
+    int getBedWarsRespawnTime();
+    EventsStatsBase setBedWarsRespawnTime(final int value);
+    int getBedWarsEventTimes();
+    EventsStatsBase setBedWarsEventTimes(final int value);
+    boolean isBedWarsNoEmeralds();
+    EventsStatsBase setBedWarsNoEmeralds(final boolean value);
+    boolean isBedWarsNoDiamonds();
+    EventsStatsBase setBedWarsNoDiamonds(final boolean value);
+    boolean isBedWarsDisableBlockProtection();
+    EventsStatsBase setBedWarsDisableBlockProtection(final boolean value);
+    boolean isBedWarsBedInstaBreak();
+    EventsStatsBase setBedWarsBedInstaBreak(final boolean value);
+    boolean isBedWarsMaxTeamUpgrades();
+    EventsStatsBase setBedWarsMaxTeamUpgrades(final boolean value);
 
     int getInt(final EventsStatsBase.Values values);
     boolean getBoolean(final EventsStatsBase.Values values);
