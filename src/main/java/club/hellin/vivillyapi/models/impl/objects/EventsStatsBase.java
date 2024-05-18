@@ -25,7 +25,9 @@ public interface EventsStatsBase extends ModelBase {
         BED_WARS_NO_DIAMONDS("bedWarsNoDiamonds", false),
         BED_WARS_DISABLE_BLOCK_PROTECTION("bedWarsDisableBlockProtection", false),
         BED_WARS_BED_INSTA_BREAK("bedWarsBedInstaBreak", false),
-        BED_WARS_MAX_TEAM_UPGRADES("bedWarsMaxTeamUpgrades", false);
+        BED_WARS_MAX_TEAM_UPGRADES("bedWarsMaxTeamUpgrades", false),
+
+        BED_WARS_APPLY_SETTINGS("bedWarsApplySettings", false);
 
         private final String fieldName;
         private final String sqlName;
@@ -82,6 +84,9 @@ public interface EventsStatsBase extends ModelBase {
     EventsStatsBase setBedWarsBedInstaBreak(final boolean value);
     boolean isBedWarsMaxTeamUpgrades();
     EventsStatsBase setBedWarsMaxTeamUpgrades(final boolean value);
+
+    boolean isBedWarsApplySettings();
+    EventsStatsBase setBedWarsApplySettings(final boolean value);
 
     int getInt(final EventsStatsBase.Values values);
     boolean getBoolean(final EventsStatsBase.Values values);
