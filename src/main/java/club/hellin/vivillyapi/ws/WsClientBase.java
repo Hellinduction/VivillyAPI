@@ -5,6 +5,7 @@ import club.hellin.vivillyapi.utils.ChatType;
 import club.hellin.vivillyapi.utils.api.ServerType;
 import club.hellin.vivillyapi.utils.events.impl.FollowEvent;
 import club.hellin.vivillyapi.utils.ws.events.EventBase;
+import club.hellin.vivillyapi.utils.ws.events.EventType;
 import club.hellin.vivillyapi.utils.ws.party.PartyBase;
 import org.bukkit.entity.Player;
 
@@ -107,4 +108,5 @@ public interface WsClientBase {
     String getEconomyServer();
     String getEventsServer();
     boolean isDebugMode();
+    void startEvent(final Player host, final EventType type, final boolean checkPermission, final boolean checkCooldown);
 }
