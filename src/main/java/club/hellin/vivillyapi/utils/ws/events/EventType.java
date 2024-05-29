@@ -11,5 +11,6 @@ public enum EventType {
     MAN_HUNT,
     FFA,
     SUMO_KNOCKOUT,
-    BED_WARS;
+    BED_WARS,
+    UNFAIR_FFA;
 }

@@ -2,11 +2,13 @@ package club.hellin.vivillyapi.ws;
 
 import club.hellin.vivillyapi.models.impl.PlayerStateBase;
 import club.hellin.vivillyapi.utils.ChatType;
+import club.hellin.vivillyapi.utils.ForeignInventory;
 import club.hellin.vivillyapi.utils.api.ServerType;
 import club.hellin.vivillyapi.utils.events.impl.FollowEvent;
 import club.hellin.vivillyapi.utils.ws.events.EventBase;
 import club.hellin.vivillyapi.utils.ws.events.EventType;
 import club.hellin.vivillyapi.utils.ws.party.PartyBase;
+import org.apache.commons.collections4.MultiValuedMap;
 import org.bukkit.entity.Player;
 
 import java.util.List;
@@ -20,6 +22,8 @@ public interface WsClientBase {
     Map<ServerType, Integer> getPlayerCountMap();
     Map<String, Integer> getPlayerCountServerNameMap();
     Map<UUID, FollowEvent.FollowData> getFollowEvents();
+    MultiValuedMap<UUID, ForeignInventory> getForeignInventoryMap();
+    ForeignInventory getInventory(final UUID uuid, final String server);
     List<? extends PartyBase> getParties();
     EventBase getActiveEvent();
     boolean isRestrictedMode();
@@ -84,6 +88,7 @@ public interface WsClientBase {
     void getCurrentEvent(final Consumer<EventBase> callback);
     void isInEvent(final UUID uuid, final Consumer<Boolean> callback);
     void announceEvent(final int startingIn);
+    void sendInventory(final UUID uuid, final String server);
 
     /**
      * Tries to run a command in a random proxy console
