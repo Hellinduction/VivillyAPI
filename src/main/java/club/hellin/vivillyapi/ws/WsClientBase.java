@@ -26,6 +26,7 @@ public interface WsClientBase {
     ForeignInventory getInventory(final UUID uuid, final String server);
     List<? extends PartyBase> getParties();
     EventBase getActiveEvent();
+    EventBase getWaitingEvent();
     boolean isRestrictedMode();
     List<? extends PlayerStateBase> getVanished();
     List<? extends PlayerStateBase> getNonVanished(final boolean online);

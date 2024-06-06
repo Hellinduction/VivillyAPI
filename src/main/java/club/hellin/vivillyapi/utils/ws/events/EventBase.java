@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.UUID;
 
 public interface EventBase {
+    String getServerName();
+
     EventType getType();
 
     /**
