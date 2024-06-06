@@ -85,8 +85,8 @@ public interface WsClientBase {
     void isInParty(final UUID uuid, final Consumer<Boolean> callback);
     void isFollowing(final UUID uuid, final String username, final Consumer<Boolean> callback);
     void send(final String str);
-    void broadcastToEvent(final String message);
-    void getCurrentEvent(final Consumer<EventBase> callback);
+    void broadcastToEvent(final String message, final String server);
+    void getCurrentEvent(final Consumer<EventBase> callback, final String server);
     void isInEvent(final UUID uuid, final Consumer<Boolean> callback);
     void announceEvent(final int startingIn);
     void sendInventory(final UUID uuid, final String server);
