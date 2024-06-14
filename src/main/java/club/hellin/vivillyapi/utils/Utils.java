@@ -5,6 +5,7 @@ import club.hellin.vivillyapi.utils.api.ServerType;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.InventoryView;
+import org.bukkit.inventory.PlayerInventory;
 
 import java.util.UUID;
 import java.util.concurrent.ExecutorService;
@@ -72,4 +73,8 @@ public abstract class Utils {
     public abstract String getInventoryName(final InventoryView view);
 
     public abstract CourseEntryBase createCourseEntry(final String uuid, final int time, final int rocketsUsed, final int timesHitGround, final long finishedAt, final String endPointName);
+
+    public abstract PlayerInventory getInventory(final UUID uuid);
+
+    public abstract boolean isFolia();
 }

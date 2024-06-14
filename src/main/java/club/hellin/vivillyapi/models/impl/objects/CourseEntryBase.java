@@ -7,7 +7,7 @@ import lombok.Getter;
 public interface CourseEntryBase extends ModelBase {
     @Getter
     enum Values implements StatValues {
-        TIME("time", 0), // In seconds
+        TIME("time", 0), // In ms
         ROCKETS_USED("rocketsUsed", 0),
         TIMES_HIT_GROUND("timesHitGround", 0),
         FINISHED_AT("finishedAt", 0L), // Epoch second of when they finished the course
