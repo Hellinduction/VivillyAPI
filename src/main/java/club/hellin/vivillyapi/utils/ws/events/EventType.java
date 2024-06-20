@@ -13,5 +13,6 @@ public enum EventType {
     SUMO_KNOCKOUT,
     BED_WARS,
     UNFAIR_FFA,
-    BED_BOMB;
+    BED_BOMB,
+    MICRO_BATTLES;
 }
