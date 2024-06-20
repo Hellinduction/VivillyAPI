@@ -27,7 +27,9 @@ public interface EventsStatsBase extends ModelBase {
         BED_WARS_BED_INSTA_BREAK("bedWarsBedInstaBreak", false),
         BED_WARS_MAX_TEAM_UPGRADES("bedWarsMaxTeamUpgrades", false),
 
-        BED_WARS_APPLY_SETTINGS("bedWarsApplySettings", false);
+        BED_WARS_APPLY_SETTINGS("bedWarsApplySettings", false),
+
+        MICRO_BATTLES_KIT("microBattlesKit", "Archer");
 
         private final String fieldName;
         private final String sqlName;
@@ -87,6 +89,9 @@ public interface EventsStatsBase extends ModelBase {
 
     boolean isBedWarsApplySettings();
     EventsStatsBase setBedWarsApplySettings(final boolean value);
+
+    String getMicroBattlesKit();
+    EventsStatsBase setMicroBattlesKit(final String value);
 
     int getInt(final EventsStatsBase.Values values);
     boolean getBoolean(final EventsStatsBase.Values values);
