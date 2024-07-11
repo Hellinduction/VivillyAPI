@@ -1,5 +1,8 @@
 package club.hellin.vivillyapi.utils.ws.events;
 
+import lombok.Getter;
+
+@Getter
 public enum EventType {
     KOTH,
     DEATH_SWAP,
