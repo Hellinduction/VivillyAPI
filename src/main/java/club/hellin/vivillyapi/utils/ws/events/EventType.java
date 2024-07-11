@@ -14,5 +14,16 @@ public enum EventType {
     BED_WARS,
     UNFAIR_FFA,
     BED_BOMB,
-    MICRO_BATTLES;
+    MICRO_BATTLES,
+    PILLARS_OF_FORTUNE(8);
+
+    private final int players;
+
+    EventType() {
+        this(-1);
+    }
+
+    EventType(final int players) {
+        this.players = players;
+    }
 }
