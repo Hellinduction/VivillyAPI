@@ -26,6 +26,9 @@ public interface EventsStatsBase extends ModelBase {
         BED_WARS_DISABLE_BLOCK_PROTECTION("bedWarsDisableBlockProtection", false),
         BED_WARS_BED_INSTA_BREAK("bedWarsBedInstaBreak", false),
         BED_WARS_MAX_TEAM_UPGRADES("bedWarsMaxTeamUpgrades", false),
+        BED_WARAS_NO_HIT_DELAY("bedWarsNoHitDelay", false),
+        BED_WARS_EVERYTHING_FREE("bedWarsEverythingFree", false),
+        BED_WARS_ALL_ROTATING_ITEMS("bedWarsAllRotatingItems", false),
 
         BED_WARS_APPLY_SETTINGS("bedWarsApplySettings", false),
 
@@ -86,6 +89,12 @@ public interface EventsStatsBase extends ModelBase {
     EventsStatsBase setBedWarsBedInstaBreak(final boolean value);
     boolean isBedWarsMaxTeamUpgrades();
     EventsStatsBase setBedWarsMaxTeamUpgrades(final boolean value);
+    boolean isNoHitDelay();
+    EventsStatsBase setNoHitDelay(final boolean value);
+    boolean isEverythingFree();
+    EventsStatsBase setEverythingFree(final boolean value);
+    boolean isAllRotatingItems();
+    EventsStatsBase setAllRotatingItems(final boolean value);
 
     boolean isBedWarsApplySettings();
     EventsStatsBase setBedWarsApplySettings(final boolean value);
