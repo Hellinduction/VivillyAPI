@@ -89,12 +89,12 @@ public interface EventsStatsBase extends ModelBase {
     EventsStatsBase setBedWarsBedInstaBreak(final boolean value);
     boolean isBedWarsMaxTeamUpgrades();
     EventsStatsBase setBedWarsMaxTeamUpgrades(final boolean value);
-    boolean isNoHitDelay();
-    EventsStatsBase setNoHitDelay(final boolean value);
-    boolean isEverythingFree();
-    EventsStatsBase setEverythingFree(final boolean value);
-    boolean isAllRotatingItems();
-    EventsStatsBase setAllRotatingItems(final boolean value);
+    boolean isBedWarsNoHitDelay();
+    EventsStatsBase setBedWarsNoHitDelay(final boolean value);
+    boolean isBedWarsEverythingFree();
+    EventsStatsBase setBedWarsEverythingFree(final boolean value);
+    boolean isBedWarsAllRotatingItems();
+    EventsStatsBase setBedWarsAllRotatingItems(final boolean value);
 
     boolean isBedWarsApplySettings();
     EventsStatsBase setBedWarsApplySettings(final boolean value);
