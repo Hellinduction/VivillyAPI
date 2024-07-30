@@ -18,7 +18,8 @@ public enum EventType {
     UNFAIR_FFA,
     BED_BOMB,
     MICRO_BATTLES,
-    PILLARS_OF_FORTUNE(8);
+    PILLARS_OF_FORTUNE(8),
+    BLOCK_HUNT;
 
     private final int players;
 
