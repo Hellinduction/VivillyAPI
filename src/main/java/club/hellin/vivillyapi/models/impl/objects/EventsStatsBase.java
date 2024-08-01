@@ -32,7 +32,9 @@ public interface EventsStatsBase extends ModelBase {
 
         BED_WARS_APPLY_SETTINGS("bedWarsApplySettings", false),
 
-        MICRO_BATTLES_KIT("microBattlesKit", "Archer");
+        MICRO_BATTLES_KIT("microBattlesKit", "Archer"),
+
+        BLOCK_HUNT_KIT("blockHuntKit", "LEAPER");
 
         private final String fieldName;
         private final String sqlName;
@@ -101,6 +103,9 @@ public interface EventsStatsBase extends ModelBase {
 
     String getMicroBattlesKit();
     EventsStatsBase setMicroBattlesKit(final String value);
+
+    String getBlockHuntKit();
+    EventsStatsBase setBlockHuntKit(final String value);
 
     int getInt(final EventsStatsBase.Values values);
     boolean getBoolean(final EventsStatsBase.Values values);
