@@ -62,6 +62,7 @@ public interface WsClientBase {
     void isLockedDown(final Consumer<Boolean> callback);
     void setLockedDown(final boolean lockedDown);
     void sudo(final UUID uuid, final String command, final boolean proxy);
+    void sendMessage(final UUID uuid, final String message);
     void clearDbCache();
     void announceGameStarting(final ServerType type, final String worldName, final int players, final int startingIn);
     void setLastWorld(final UUID uuid, final String world);

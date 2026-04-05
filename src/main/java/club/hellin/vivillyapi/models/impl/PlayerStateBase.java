@@ -103,6 +103,9 @@ public interface PlayerStateBase extends ModelBase {
     default void sudo(final String command, final boolean proxy) {
         SpigotCoreBase.INSTANCE.getWs().sudo(UUID.fromString(this.getUuid()), command, proxy);
     }
+    default void sendMessage(final String message) {
+        SpigotCoreBase.INSTANCE.getWs().sendMessage(UUID.fromString(this.getUuid()), message);
+    }
 
     /**
      * Updates the PlayerState in the DB and synchronizes across all servers
