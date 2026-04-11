@@ -1,6 +1,6 @@
 package club.hellin.vivillyapi.utils;
 
-import club.hellin.vivillyapi.SpigotCoreBase;
+import club.hellin.vivillyapi.CoreAPI;
 import club.hellin.vivillyapi.models.impl.PlayerStateBase;
 import club.hellin.vivillyapi.models.impl.objects.EventsStatsBase;
 import club.hellin.vivillyapi.models.impl.objects.SumoEventStatsBase;
@@ -21,7 +21,7 @@ public final class PlayerUtil {
      * @return
      */
     public PlayerStateBase getPlayerState(final UUID uuid) {
-        final PlayerStateBase state = SpigotCoreBase.INSTANCE.getWs().getPlayerStateMap().get(uuid);
+        final PlayerStateBase state = CoreAPI.get().getWs().getPlayerStateMap().get(uuid);
         return state;
     }
 
@@ -51,7 +51,7 @@ public final class PlayerUtil {
     public PlayerStateBase getPlayerStateByUsername(final String username) {
         PlayerStateBase found = null;
 
-        for (final PlayerStateBase state : SpigotCoreBase.INSTANCE.getWs().getPlayerStateMap().values()) {
+        for (final PlayerStateBase state : CoreAPI.get().getWs().getPlayerStateMap().values()) {
             if (!state.getUsername().equalsIgnoreCase(username))
                 continue;
 
@@ -95,7 +95,7 @@ public final class PlayerUtil {
     }
 
     public void getOfflinePlayerState(final UUID uuid, final Consumer<PlayerStateBase> callback) {
-        SpigotCoreBase.INSTANCE.getWs().getPlayerState(uuid, callback);
+        CoreAPI.get().getWs().getPlayerState(uuid, callback);
     }
 
     public void getOfflinePlayerState(final OfflinePlayer player, final Consumer<PlayerStateBase> callback) {
@@ -103,7 +103,7 @@ public final class PlayerUtil {
     }
 
     public void getOfflinePlayerStateByUsername(final String username, final Consumer<PlayerStateBase> callback) {
-        SpigotCoreBase.INSTANCE.getWs().getPlayerStateByUsername(username, callback);
+        CoreAPI.get().getWs().getPlayerStateByUsername(username, callback);
     }
 
     public OfflinePlayer getOfflinePlayer(final PlayerStateBase state) {

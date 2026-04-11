@@ -1,40 +1,49 @@
 package club.hellin.vivillyapi;
 
-import club.hellin.vivillyapi.commands.Initializable;
-import club.hellin.vivillyapi.utils.api.CoreProviderBase;
-import club.hellin.vivillyapi.utils.events.EventManagerBase;
-import club.hellin.vivillyapi.ws.WsClientBase;
+import club.hellin.vivillyapi.commands.impl.DebugBase;
+import club.hellin.vivillyapi.commands.impl.LeaderboardBase;
+import club.hellin.vivillyapi.commands.impl.ToggleStatsBase;
 import lombok.Getter;
+import lombok.Setter;
+import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
+import org.bukkit.plugin.ServicePriority;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.List;
-import java.util.UUID;
-
 @Getter
-public abstract class SpigotCoreBase extends JavaPlugin {
+@Setter
+public abstract class SpigotCoreBase extends JavaPlugin implements CoreAPI {
+    @Deprecated
     public static SpigotCoreBase INSTANCE;
+
+    private DebugBase debugCommand;
+    private LeaderboardBase leaderboardCommand;
+    private ToggleStatsBase toggleStatsCommand;
 
     /**
      * Make sure to call super() when extending this class in the constructor
      */
     public SpigotCoreBase() {
         INSTANCE = this;
+
+        Bukkit.getServicesManager().register(
+                CoreAPI.class,
+                this,
+                this,
+                ServicePriority.Normal
+        );
     }
 
-    public abstract List<Initializable> getInitCommands();
+    @Override
+    public void onDisable() {
+        INSTANCE = null;
 
-    public abstract WsClientBase getWs();
+        Bukkit.getServicesManager().unregisterAll(this);
+    }
 
-    public abstract CoreProviderBase getProvider();
-
-    public abstract EventManagerBase getEventManager();
-
-    public abstract String getServerName();
-
-    public abstract void setServerName(final String serverName);
-
-    public abstract UUID generateOrRetrieveUUID();
+    public static SpigotCoreBase get() {
+        return (SpigotCoreBase) CoreAPI.get();
+    }
 
     protected abstract void registerCommand(final String cmdName, final CommandExecutor cmd);
 }

@@ -1,6 +1,9 @@
 package club.hellin.vivillyapi.commands.impl;
 
+import club.hellin.vivillyapi.SpigotCoreBase;
+
 public abstract class ToggleStatsBase {
+    @Deprecated
     public static ToggleStatsBase INSTANCE;
 
     /**
@@ -8,6 +11,7 @@ public abstract class ToggleStatsBase {
      */
     public ToggleStatsBase() {
         INSTANCE = this;
+        SpigotCoreBase.get().setToggleStatsCommand(this);
     }
 
     public abstract boolean isStatsEnabled(final String worldName);

@@ -1,9 +1,11 @@
 package club.hellin.vivillyapi.commands.impl;
 
+import club.hellin.vivillyapi.SpigotCoreBase;
 import eu.decentsoftware.holograms.api.holograms.Hologram;
 import org.bukkit.Location;
 
 public abstract class LeaderboardBase {
+    @Deprecated
     public static LeaderboardBase INSTANCE;
 
     /**
@@ -11,6 +13,7 @@ public abstract class LeaderboardBase {
      */
     public LeaderboardBase() {
         INSTANCE = this;
+        SpigotCoreBase.get().setLeaderboardCommand(this);
     }
 
     public abstract Hologram createLeaderboard(final club.hellin.vivillyapi.models.impl.objects.LeaderboardBase.LeaderboardType type, final Location loc, final boolean save);
