@@ -20,7 +20,7 @@ public abstract class SpigotCoreBase extends JavaPlugin implements CoreAPI, List
     @Deprecated
     public static SpigotCoreBase INSTANCE;
 
-    protected static Class<?> coreApiClass = CoreAPI.class;
+    private static Class<?> coreApiClass = CoreAPI.class;
 
     private DebugBase debugCommand;
     private LeaderboardBase leaderboardCommand;
@@ -58,6 +58,17 @@ public abstract class SpigotCoreBase extends JavaPlugin implements CoreAPI, List
         INSTANCE = null;
 
         Bukkit.getServicesManager().unregisterAll(this);
+    }
+
+    protected static Class<?> getCoreApiClass() {
+        if (CoreAPI.class.getSimpleName().equals(coreApiClass.getSimpleName()))
+            return coreApiClass;
+
+        for (final Class<?> clazz : coreApiClass.getSuperclass().getInterfaces())
+            if (CoreAPI.class.getSimpleName().equals(clazz.getSimpleName()))
+                return clazz;
+
+        return null;
     }
 
     public static SpigotCoreBase get() {

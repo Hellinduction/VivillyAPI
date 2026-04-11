@@ -36,8 +36,8 @@ public interface CoreAPI {
 
     static <T extends CoreAPI> T get() {
         return (T) Objects.requireNonNull(
-                Bukkit.getServicesManager().getRegistration(SpigotCoreBase.coreApiClass),
-                "CoreAPI not registered"
+                Bukkit.getServicesManager().getRegistration(SpigotCoreBase.getCoreApiClass()),
+                String.format("%s not registered", SpigotCoreBase.getCoreApiClass().getName())
         ).getProvider();
     }
 }
