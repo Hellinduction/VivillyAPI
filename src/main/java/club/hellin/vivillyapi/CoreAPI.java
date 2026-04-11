@@ -34,9 +34,9 @@ public interface CoreAPI {
 
     ToggleStatsBase getToggleStatsCommand();
 
-    static CoreAPI get() {
-        return Objects.requireNonNull(
-                Bukkit.getServicesManager().getRegistration(CoreAPI.class),
+    static <T extends CoreAPI> T get() {
+        return (T) Objects.requireNonNull(
+                Bukkit.getServicesManager().getRegistration(SpigotCoreBase.coreApiClass),
                 "CoreAPI not registered"
         ).getProvider();
     }
