@@ -11,7 +11,7 @@ public abstract class DebugBase {
      */
     public DebugBase() {
         INSTANCE = this;
-        SpigotCoreBase.get().setDebugCommand(this);
+        SpigotCoreBase.get(null).setDebugCommand(this);
     }
 
     public abstract boolean isDebugMode();

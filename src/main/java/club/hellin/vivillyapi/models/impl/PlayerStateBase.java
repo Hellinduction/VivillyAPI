@@ -101,10 +101,10 @@ public interface PlayerStateBase extends ModelBase {
     void isOnline(final Consumer<Boolean> callback);
     void send(final String server);
     default void sudo(final String command, final boolean proxy) {
-        CoreAPI.get().getWs().sudo(UUID.fromString(this.getUuid()), command, proxy);
+        CoreAPI.get(null).getWs().sudo(UUID.fromString(this.getUuid()), command, proxy);
     }
     default void sendMessage(final String message) {
-        CoreAPI.get().getWs().sendMessage(UUID.fromString(this.getUuid()), message);
+        CoreAPI.get(null).getWs().sendMessage(UUID.fromString(this.getUuid()), message);
     }
 
     /**
@@ -113,6 +113,6 @@ public interface PlayerStateBase extends ModelBase {
      * WARNING: DO NOT WAIT TO CALL THIS!! CALL THIS AS SOON AS YOU HAVE THE CHANGES OTHERWISE YOU MAY CAUSE ISSUES!
      */
     default void update() {
-        CoreAPI.get().getWs().updatePlayerState(this);
+        CoreAPI.get(null).getWs().updatePlayerState(this);
     }
 }

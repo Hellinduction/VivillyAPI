@@ -13,7 +13,7 @@ public abstract class LeaderboardBase {
      */
     public LeaderboardBase() {
         INSTANCE = this;
-        SpigotCoreBase.get().setLeaderboardCommand(this);
+        SpigotCoreBase.get(null).setLeaderboardCommand(this);
     }
 
     public abstract Hologram createLeaderboard(final club.hellin.vivillyapi.models.impl.objects.LeaderboardBase.LeaderboardType type, final Location loc, final boolean save);

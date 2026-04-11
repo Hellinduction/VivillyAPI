@@ -11,7 +11,7 @@ public abstract class ToggleStatsBase {
      */
     public ToggleStatsBase() {
         INSTANCE = this;
-        SpigotCoreBase.get().setToggleStatsCommand(this);
+        SpigotCoreBase.get(null).setToggleStatsCommand(this);
     }
 
     public abstract boolean isStatsEnabled(final String worldName);

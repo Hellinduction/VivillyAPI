@@ -11,12 +11,18 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.ServicePriority;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
 public abstract class SpigotCoreBase extends JavaPlugin implements CoreAPI, Listener {
+    private static final Set<String> pluginsRegisteredListenersOn = new HashSet<>();
+
     @Deprecated
     public static SpigotCoreBase INSTANCE;
 
@@ -44,7 +50,6 @@ public abstract class SpigotCoreBase extends JavaPlugin implements CoreAPI, List
      * To be called onEnable
      */
     protected void init() {
-        Bukkit.getPluginManager().registerEvents(this, this);
         Bukkit.getPluginManager().callEvent(new CoreReadyEvent(this));
     }
 
@@ -64,15 +69,25 @@ public abstract class SpigotCoreBase extends JavaPlugin implements CoreAPI, List
         if (CoreAPI.class.getSimpleName().equals(coreApiClass.getSimpleName()))
             return coreApiClass;
 
-        for (final Class<?> clazz : coreApiClass.getSuperclass().getInterfaces())
+        for (final Class<?> clazz : coreApiClass.getSuperclass().getSuperclass().getInterfaces())
             if (CoreAPI.class.getSimpleName().equals(clazz.getSimpleName()))
                 return clazz;
 
         return null;
     }
 
-    public static SpigotCoreBase get() {
-        return CoreAPI.get();
+    protected void registerListeners(final Plugin plugin) {
+        final String pluginName = plugin.getName();
+
+        if (pluginsRegisteredListenersOn.contains(pluginName))
+            return;
+
+        pluginsRegisteredListenersOn.add(pluginName);
+        Bukkit.getPluginManager().registerEvents(this, plugin);
+    }
+
+    public static SpigotCoreBase get(final Plugin plugin) {
+        return CoreAPI.get(plugin);
     }
 
     protected abstract void registerCommand(final String cmdName, final CommandExecutor cmd);
